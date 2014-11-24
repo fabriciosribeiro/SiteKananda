@@ -96,12 +96,12 @@
 				<div class="col-xs-12" >
 					<ul class="nav nav-tabs" role="tablist">
 						  <li class="active"><a href="#cEspecificacao" onclick='exibe_mapa(false)' role="tab" data-toggle="tab">Especificação</a></li>
-						  <li><a href="#cMapa" role="tab" onclick='exibe_mapa(true	)' data-toggle="tab">Mapa</a></li>
+						  <li><a href="#mapa" role="tab" onclick='exibe_mapa(true)' data-toggle="tab">Mapa</a></li>
 						  <li><a href="#cVideo" role="tab" onclick='exibe_mapa(false)' data-toggle="tab">Vídeo</a></li>
 					</ul>
 				<!-- Tab panes -->
 					<div class="tab-content" style="padding: 5px 10px;">
-						  <div class="tab-pane fade in active" id="cEspecificacao">
+						  <div class="tab-pane fade " id="cEspecificacao">
 						  	<ul>
 						  		<li>
 						  			<p class="text-left">Descricao: <span><?= $imovel['descricao']?></span></p>
@@ -119,20 +119,20 @@
 						  			<p class="text-left">Quantidade de suite(s): <span><?= $imovel['suites']?></span></p>
 						  		</li>
 						  		<li>
-						  			<p class="text-left">Descrição: <span>xxxxxxxxxxxxx</span></p>
+						  			
 						  			<p class="text-left">Quantidade de Garagem: <span><?= $imovel['garagem']?></span></p>
 						  		</li>
 						  	</ul>
 						  </div>
-						  <div class="fade" id="cMapa" style="display:none">
+						  <div class="tab-pane fade in active" id="mapa" style="height: 300px; width: 100%;">
 						  	<!-- <iframe class="endo-mapa" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/ms?msa=0&amp;msid=203815559016864751127.0004ff7cd23a2fa0978ae&amp;hl=pt-BR&amp;ie=UTF8&amp;t=m&amp;z=17&amp;output=embed"></iframe> -->
-							<div id="mapa" style="height: 300px; width: 100%;">
+							<!-- <div id="mapa" > -->
 					      		<!-- Maps API Javascript -->
 					        	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCg1ogHawJGuDbw7nd6qBz9yYxYPoGTWQo&sensor=false"></script>
-					      	</div>
+					      	<!-- </div> -->
         						
 						  </div>
-						  <div class="tab-pane fade" id="cVideo">
+						  <div class="tab-pane fade " id="cVideo">
 						  	<iframe width="100%" height="400" src="<?= $imovel['video']?>" frameborder="0" allowfullscreen></iframe>	
 						  </div>
 					</div>

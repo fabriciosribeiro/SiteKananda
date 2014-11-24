@@ -170,11 +170,14 @@
         if(($(this).attr("readonly")) == "readonly"){
           $("#cReferencia").val('');
           alterna_referencia_filtro();
-          console.log('readonly');
+          
         }
     });
-    
-    
+
+     // soluciona bug da exibição do mapa provocado pelo bootstrap
+     setTimeout(function(){$('#mapa').removeClass('fade in active')}, 400);
+     setTimeout(function(){$('#cEspecificacao').addClass('fade in active')}, 400);
+        
 
 
     });
