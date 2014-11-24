@@ -76,6 +76,7 @@
     </div>
   </div>
   </div><!--FIM DO CONTAINER -->
+
   <script type="text/javascript" src="<?= RAIZ ?>js/holder.js"></script>
   <script type="text/javascript" src="<?= RAIZ ?>js/bootstrap.min.js"></script>
   <script type="text/javascript" src="<?= RAIZ ?>js/docs.min.js"></script>
@@ -84,7 +85,7 @@
   <script src="<?= RAIZ ?>js/markerclusterer.js"></script>
   <script src="<?= RAIZ ?>js/mapa.js"></script>
   <script type="text/javascript">
-
+    
     $(document).ready(function() {
       
       exibe_mapa = function (exibe){
@@ -173,6 +174,10 @@
           
         }
     });
+
+
+     $(".pagina_mapa").on("load", carregarPontos('*'));
+     $(".mapa_individual").on("load", carregarPonto(imovel));
 
      // soluciona bug da exibição do mapa provocado pelo bootstrap
      setTimeout(function(){$('#mapa').removeClass('fade in active')}, 400);

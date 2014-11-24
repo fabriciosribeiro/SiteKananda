@@ -21,6 +21,7 @@
     $inicio = true;
   }
 
+
   require(RAIZ."paginas/subpaginas/header.php");
 
   if($inicio){

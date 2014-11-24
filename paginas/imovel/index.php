@@ -7,7 +7,7 @@
 	    $imovel->selecionarTudo();
 	    $imovel = $imovel->retornar();
 
-	    
+	    echo "<script> var imovel = '".$pagina[1]."'</script>";
 
 ?>
 
@@ -124,12 +124,9 @@
 						  		</li>
 						  	</ul>
 						  </div>
-						  <div class="tab-pane fade in active" id="mapa" style="height: 300px; width: 100%;">
-						  	<!-- <iframe class="endo-mapa" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/ms?msa=0&amp;msid=203815559016864751127.0004ff7cd23a2fa0978ae&amp;hl=pt-BR&amp;ie=UTF8&amp;t=m&amp;z=17&amp;output=embed"></iframe> -->
-							<!-- <div id="mapa" > -->
-					      		<!-- Maps API Javascript -->
-					        	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCg1ogHawJGuDbw7nd6qBz9yYxYPoGTWQo&sensor=false"></script>
-					      	<!-- </div> -->
+						  <div class="tab-pane fade in active mapa_individual" id="mapa" style="height: 300px; width: 100%;">
+								<!-- Maps API Javascript -->
+							<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCg1ogHawJGuDbw7nd6qBz9yYxYPoGTWQo&sensor=false"></script>
         						
 						  </div>
 						  <div class="tab-pane fade " id="cVideo">

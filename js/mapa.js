@@ -7,8 +7,9 @@ var visibles = [];
 var visibles_bairros = [];
 var latlng;
 
+
 function initialize() {	
-	
+
 	latlng = new google.maps.LatLng(-4.267027, -55.993366);
 	
     var options = {
@@ -16,7 +17,7 @@ function initialize() {
 		center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
+    
     map = new google.maps.Map(document.getElementById("mapa"), options);
 }
 
@@ -36,7 +37,6 @@ function carregarPontos(filtro) {
 		var latlngbounds = new google.maps.LatLngBounds();
 		
 		$.each(pontos, function(index, ponto) {
-			var ico;
 			
 
 			if(ponto.tipo_imovel == filtro || filtro == '*'){// filtra por tipo de imóvel
@@ -153,6 +153,74 @@ function carregarPontos(filtro) {
 	
 }
 
+
+function carregarPonto(ponto_id) {
+	
+	$.getJSON('../js/pontos.json', function(pontos) {
+		
+		var latlngbounds = new google.maps.LatLngBounds();
+		
+		$.each(pontos, function(index, ponto) {
+			
+			
+			if(ponto.id == ponto_id){// filtra por tipo de imóvel
+
+				if(ponto.tipo_imovel=='CASA A VENDA')
+					ico = '../img/casa_venda.png'
+				else if(ponto.tipo_imovel=='CASA PARA ALUGAR')
+					ico = '../img/casa_aluguel.png'
+				else if(ponto.tipo_imovel=='TERRENO URBANO')
+					ico = '../img/marcador5.png'
+				else if(ponto.tipo_imovel=='TERRENO RURAL')
+					ico = '../img/marcador5.png'
+				else if(ponto.tipo_imovel=='AREAS PORTUARIA')
+					ico = '../img/marcador5.png'
+				else
+					ico = 'img/marcador5.png'
+
+				var marcador = new google.maps.Marker({
+					position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
+					title: "KANANDA IMOBILIÁRIA - IMÓVEL",
+					icon: ico,
+					tipo_imovel: ponto.tipo_imovel,
+					bairro: ponto.bairro,
+					animation: google.maps.Animation.BOUNCE,
+					map: map,
+					zoom:18
+				});
+				
+				marcadores.push(marcador);
+								
+				
+				
+				latlngbounds.extend(marcador.position);
+				map.setZoom(14);
+			}
+
+	
+			
+		});
+		
+		if(marcadores.length==0){
+
+			var marcador = new google.maps.Marker({
+			      position: latlng,
+			      map: map,
+			      title: 'Itaituba'
+			  });
+			marcadores.push(marcador);
+			latlngbounds.extend(marcador.position);
+			map.setZoom(13);
+			apagar_marcadores();
+			
+		}
+		
+		
+	});
+
+	
+}
+
 function apagar_marcadores(){
 
 	for (var i = 0; i < marcadores.length; i++) {
@@ -224,4 +292,3 @@ function aplica_filtro_bairro(obj){
 
 initialize();
 
-carregarPontos('*');

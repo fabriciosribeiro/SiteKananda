@@ -3,7 +3,7 @@
 	<!--CONTATO-->
 	<div class="row">
 		<div class="col-xs-12">
-			<div id="mapa" style="height: 600px; width: 960px">
+			<div id="mapa" class='pagina_mapa'style="height: 600px; width: 960px">
 				<!-- <img data-src="holder.js/960x600" alt=""> -->
 				<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCg1ogHawJGuDbw7nd6qBz9yYxYPoGTWQo&sensor=false"></script>
 			</div>
