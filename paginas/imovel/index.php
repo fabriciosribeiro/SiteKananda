@@ -130,7 +130,7 @@
         						
 						  </div>
 						  <div class="tab-pane fade " id="cVideo">
-						  	<iframe width="100%" height="400" src="<?= $imovel['video']?>" frameborder="0" allowfullscreen></iframe>	
+						  	<iframe width="100%" height="400" src="<?= (stripos($imovel['video'], 'embed')) ? $imovel['video'] : '' ?>" frameborder="0" allowfullscreen></iframe>	
 						  </div>
 					</div>
 				</div>
