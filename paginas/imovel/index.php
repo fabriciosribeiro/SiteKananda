@@ -112,6 +112,7 @@
 						  		<li>
 						  			<p class="text-left">Bairro: <span><?= $imovel['bairro']?></span></p>
 						  		</li>
+						  		<?php if($imovel['tipo_imovel'] == 'CASA A VENDA' || $imovel['tipo_imovel'] == 'CASA PARA ALUGAR'){?>
 						  		<li>
 						  			<p class="text-left">Quantidade de quarto(s): <span><?= $imovel['quartos']?></span></p>
 						  		</li>
@@ -122,6 +123,7 @@
 						  			
 						  			<p class="text-left">Quantidade de Garagem: <span><?= $imovel['garagem']?></span></p>
 						  		</li>
+						  		<?php } ?>
 						  	</ul>
 						  </div>
 						  <div class="tab-pane fade in active mapa_individual" id="mapa" style="height: 300px; width: 100%;">
