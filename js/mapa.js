@@ -46,13 +46,13 @@ function carregarPontos(filtro) {
 				else if(ponto.tipo_imovel=='CASA PARA ALUGAR')
 					ico = 'img/casa_aluguel.png'
 				else if(ponto.tipo_imovel=='TERRENO URBANO')
-					ico = 'img/marcador5.png'
+					ico = 'img/terreno_urbano.png'
 				else if(ponto.tipo_imovel=='TERRENO RURAL')
-					ico = 'img/marcador5.png'
+					ico = 'img/terreno_rural.png'
 				else if(ponto.tipo_imovel=='AREAS PORTUARIA')
-					ico = 'img/marcador5.png'
-				else
-					ico = 'img/marcador5.png'
+					ico = 'img/area_portuaria.png'
+				else if(ponto.tipo_imovel=='LOTEAMENTO')
+					ico = 'img/loteamento.png'
 
 				var marcador = new google.maps.Marker({
 					position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
@@ -88,13 +88,13 @@ function carregarPontos(filtro) {
 				else if(ponto.tipo_imovel=='CASA PARA ALUGAR')
 					ico = 'img/casa_aluguel.png'
 				else if(ponto.tipo_imovel=='TERRENO URBANO')
-					ico = 'img/marcador5.png'
+					ico = 'img/terreno_urbano.png'
 				else if(ponto.tipo_imovel=='TERRENO RURAL')
-					ico = 'img/marcador5.png'
+					ico = 'img/terreno_rural.png'
 				else if(ponto.tipo_imovel=='AREAS PORTUARIA')
-					ico = 'img/marcador5.png'
-				else
-					ico = 'img/marcador5.png'
+					ico = 'img/area_portuaria.png'
+				else if(ponto.tipo_imovel=='LOTEAMENTO')
+					ico = 'img/loteamento.png'
 
 				var marcador = new google.maps.Marker({
 					position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
@@ -170,13 +170,13 @@ function carregarPonto(ponto_id) {
 				else if(ponto.tipo_imovel=='CASA PARA ALUGAR')
 					ico = '../img/casa_aluguel.png'
 				else if(ponto.tipo_imovel=='TERRENO URBANO')
-					ico = '../img/marcador5.png'
+					ico = '../img/terreno_urbano.png'
 				else if(ponto.tipo_imovel=='TERRENO RURAL')
-					ico = '../img/marcador5.png'
+					ico = '../img/terreno_rural.png'
 				else if(ponto.tipo_imovel=='AREAS PORTUARIA')
-					ico = '../img/marcador5.png'
-				else
-					ico = 'img/marcador5.png'
+					ico = '../img/area_portuaria.png'
+				else if(ponto.tipo_imovel=='LOTEAMENTO')
+					ico = '../img/loteamento.png'
 
 				var marcador = new google.maps.Marker({
 					position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
@@ -194,7 +194,7 @@ function carregarPonto(ponto_id) {
 				
 				
 				latlngbounds.extend(marcador.position);
-				map.setZoom(14);
+				map.setZoom(13);
 			}
 
 	
