@@ -151,6 +151,7 @@
       if ($("#cReferencia").val() != "" ){
         $("#filtro-detalhe select").attr("readonly", "readonly");
         $('select option').attr('disabled',true);
+        $('#selecionaBairro option').attr('disabled',false);
         $("#filtro-detalhe input:not(#cReferencia)").attr("readonly", "readonly");
 
       }else{
