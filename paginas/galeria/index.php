@@ -1,4 +1,4 @@
-
+﻿
 <link rel="stylesheet" href="<?= RAIZ ?>/css/imovel-categoria.css">
 <link rel="stylesheet" href="<?= RAIZ ?>/css/galeria.css">
 <!--FOTORAMA-->
@@ -34,8 +34,8 @@
         foreach ($fotos_evento->retornarDados() as $key => $value) {
                   
       ?>
-
-      <a href="<?= RAIZ.$value['arquivo'] ?>"><img src="/img/test1.jpg"></a>
+	<!-- data-caption="texto" -->
+      <a href="<?= RAIZ.$value['arquivo'] ?>" data-caption="<?= $value['descricao_foto'] ?>"></a>
 
       <?php } ?>
        
