@@ -35,6 +35,7 @@
 		protected $tabela 			= "";
 		protected $camposValores 	= array(); // armazena os elementos usados pelo objeto
 		protected $camposConsulta	= array(); // campos usados para atualizações ou consultas
+		protected $camposConsultaOR	= array(); // campos usados para atualizações ou consultas utilizando o operador OR
 		protected $extrasSelect 	= "";
 		protected $idInserido		= NULL;
 		protected $ultimaSql		= NULL;
@@ -66,6 +67,12 @@
 		public function addConsulta($campo = NULL, $valor = NULL){
 			if($campo!=NULL):
 				$this->camposConsulta[$campo] = $valor;
+			endif;
+		}//addConsulta
+
+		public function addConsultaOR($campo = NULL, $valor = NULL){
+			if($campo!=NULL):
+				$this->camposConsultaOR[$campo] = $valor;
 			endif;
 		}//addConsulta
 
@@ -209,6 +216,19 @@
 					$sql .= is_numeric($value) ? $value : ":".$key;
 					$i++;
 				}
+
+			elseif (count($this->camposConsultaOR)>0):
+				$i = 0;
+				$sql .= " WHERE ";
+				foreach ($this->camposConsultaOR as $key => $value) {
+					if($i!=0)
+						$sql .= " AND ";	
+							
+					$sql .= $key."=";	
+					$sql .= is_numeric($value) ? $value : ":".$key;
+					$i++;
+				}
+
 			endif;
 
 			if($this->extrasSelect != NULL):

@@ -122,9 +122,10 @@
 
               if($_POST['selecionaImovel'] == 'CASA A VENDA' || $_POST['selecionaImovel'] == 'CASA PARA ALUGAR'){
 
-                $imovel->addConsulta('quartos', $_POST['selecionaQntQuarto']);
-                $imovel->addConsulta('suites', $_POST['selecionaQntSuites']);
-                $imovel->addConsulta('garagem', $_POST['selecionaqntGaragem']);
+                $imovel->addConsultaOR('quartos', $_POST['selecionaQntQuarto']);
+                $imovel->addConsultaOR('suites', $_POST['selecionaQntSuites']);
+                $imovel->addConsultaOR('garagem', $_POST['selecionaqntGaragem']);
+                
 
                 if($_POST['selecionaBairro'] != 'qualquer')
                   $imovel->addConsulta('bairro', $_POST['selecionaBairro']);
