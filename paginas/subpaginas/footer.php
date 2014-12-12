@@ -181,8 +181,8 @@
      $(".mapa_individual").on("load", carregarPonto(imovel));
 
      // soluciona bug da exibição do mapa provocado pelo bootstrap
-     setTimeout(function(){$('#mapa').removeClass('fade in active')}, 400);
-     setTimeout(function(){$('#cEspecificacao').addClass('fade in active')}, 400);
+     setTimeout(function(){$('#mapa').removeClass('fade in active')}, 700);
+     setTimeout(function(){$('#cEspecificacao').addClass('fade in active')}, 700);
         
 
 
