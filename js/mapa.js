@@ -22,10 +22,10 @@ function initialize() {
 }
 
 function abrirInfoBox(id, marker) {
-	if (typeof(idInfoBoxAberto) == 'number' && typeof(infoBox[idInfoBoxAberto]) == 'object') {
+	if (typeof(idInfoBoxAberto) == 'string' && typeof(infoBox[idInfoBoxAberto]) == 'object') {
 		infoBox[idInfoBoxAberto].close();
 	}
-
+	
 	infoBox[id].open(map, marker);
 	idInfoBoxAberto = id;
 }
@@ -143,6 +143,7 @@ function carregarPontos(filtro) {
 		}else{	
 		
 			map.fitBounds(latlngbounds);
+			map.setZoom(17);
 
 		}
 		//var markerCluster = new MarkerClusterer(map, markers);
