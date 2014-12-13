@@ -203,9 +203,10 @@
 
 
 		public function selecionarTudo(){
-
+			$and = false;
 			$sql = "SELECT * FROM ".$this->tabela;
 			if(count($this->camposConsulta)>0):
+				$and = true;
 				$i = 0;
 				$sql .= " WHERE ";
 				foreach ($this->camposConsulta as $key => $value) {
@@ -216,24 +217,35 @@
 					$sql .= is_numeric($value) ? $value : ":".$key;
 					$i++;
 				}
+			endif;
 
-			elseif (count($this->camposConsultaOR)>0):
+			if (count($this->camposConsultaOR)>0):
 				$i = 0;
-				$sql .= " WHERE ";
+				if(!$and)
+					$sql .= " WHERE ";
+				else
+					$sql .= " AND (";
 				foreach ($this->camposConsultaOR as $key => $value) {
 					if($i!=0)
-						$sql .= " AND ";	
+						$sql .= " OR ";	
 							
-					$sql .= $key."=";	
-					$sql .= is_numeric($value) ? $value : ":".$key;
+					if($value == '+')
+						$sql .= $key.">= 5";
+					else{
+						$sql .= $key."=";	
+						$sql .= is_numeric($value) ? $value : ":".$key;
+					}
 					$i++;
 				}
+				if($and)
+					$sql .= " ) ";
 
 			endif;
 
 			if($this->extrasSelect != NULL):
 				$sql .= " ".$this->extrasSelect;
 			endif;
+			
 			
 			if($this->executarSql($sql))
 				return TRUE;
